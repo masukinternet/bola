@@ -1,36 +1,59 @@
-<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Live Player</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<meta charset="UTF-8"></meta>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<title>Live Streamimg Football</title>
+  <link rel="stylesheet" href="https://videy.biz.id/style.css">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<script src="https://prodtrousers.com/76/07/4a/76074ae7b427d9a35ca3e6d54904fc60.js"></script>
-<script src="https://prodtrousers.com/8a/71/5a/8a715aa8b24cfeaeb01da619642095f2.js"></script>
-<video id="video" controls autoplay></video>
+  
+
+<div class="safelink-box">
+  <h2>Livestreaming Bola Tottenham Hotspurs Vs Liverpool</h2>
+  <p>Skrol kebawah untuk mendapatkan link streaming</p>
+  
+  <script async="async" data-cfasync="false" src="https://prodtrousers.com/72ff6c0102eaad7af36eca64bdc624aa/invoke.js"></script>
+
+
+  <input id="url" placeholder="Link akan diproses..." readonly="" type="hidden" />
+  <button disabled="" id="btn">Loading...</button>
+  <div id="timer"></div>
+</div>
 
 <script>
-  var video = document.getElementById('video');
-  var videoSrc = 'https://www.youtube.com/embed/JPr9VpQZDOI?si=KtuECOVmNhGyBFKh';
+var params = new URLSearchParams(window.location.search);
+var target = params.get("url");
 
-  if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = videoSrc;
-  } else if (Hls.isSupported()) {
-    var hls = new Hls();
-    hls.loadSource(videoSrc);
-    hls.attachMedia(video);
-  }
+if(target){
+  target = atob(target);
+  document.getElementById("url").value = target;
+
+  var timeleft = 20;
+  var countdown = setInterval(function(){
+    document.getElementById("timer").innerHTML = 
+      "Tunggu " + timeleft + " detik...";
+    timeleft--;
+
+    if(timeleft < 0){
+      clearInterval(countdown);
+      document.getElementById("timer").innerHTML = "Silakan klik tombol link streaming di atas selamat menonton";
+      var btn = document.getElementById("btn");
+      btn.innerHTML = "Kunjungi Link";
+      btn.disabled = false;
+      btn.onclick = function(){
+        window.location.href = target;
+      }
+    }
+  },1000);
+}else{
+  document.querySelector(".safelink-box").innerHTML =
+  "<h3>Link tidak valid</h3>";
+}
 </script>
-
-
-  <script async="async" data-cfasync="false" src="https://prodtrousers.com/72ff6c0102eaad7af36eca64bdc624aa/invoke.js"></script>
-<div id="container-72ff6c0102eaad7af36eca64bdc624aa"></div>
+<script src="https://prodtrousers.com/76/07/4a/76074ae7b427d9a35ca3e6d54904fc60.js"></script>
+<script src="https://prodtrousers.com/8a/71/5a/8a715aa8b24cfeaeb01da619642095f2.js"></script>
 </body>
 </html>
-
-
